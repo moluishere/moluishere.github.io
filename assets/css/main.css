@@ -3533,6 +3533,7 @@ body {
   padding-bottom: 0.5em;
   border-bottom: 1px solid #f2f3f3;
 }
+
 .page__content h1 .header-link,
 .page__content h2 .header-link,
 .page__content h3 .header-link,
@@ -3562,7 +3563,6 @@ body {
   font-size: 0.8em;
   /*字體：1em- > 0.8em*/
 }
-
 .page__content p {
   margin: 0 0 1.3em; /* sibling indentation*/
 }
@@ -3591,7 +3591,6 @@ body {
   margin-top: -1.5em;
   padding-left: 1.25rem;
 }
-
 .page__hero {
   position: relative;
   margin-bottom: 2em;
@@ -3606,6 +3605,7 @@ body {
   content: "";
   display: table;
 }
+
 .page__hero--overlay {
   position: relative;
   margin-bottom: 2em;

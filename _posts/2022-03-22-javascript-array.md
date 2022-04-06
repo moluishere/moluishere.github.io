@@ -8,7 +8,7 @@ tags:
   - Array
 ---
 
-陣列 Array 介紹 / 陣列中的 map()、filter()、reduce() 方法
+介紹 JavaScript 陣列以及 map()、filter()、reduce() 方法
 
 <center>
     <img style="border-radius: 0.3125em;
