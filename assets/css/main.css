@@ -3560,8 +3560,9 @@ body {
 .page__content li,
 .page__content dl {
   font-size: 0.8em;
+  /*字體：1em- > 0.8em*/
 }
-/*字體：1em- > 0.8em*/
+
 .page__content p {
   margin: 0 0 1.3em; /* sibling indentation*/
 }

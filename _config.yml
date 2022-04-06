@@ -60,20 +60,20 @@ plugins:
 author:
   name: "Yvonne Shih"
   avatar: "/assets/images/bio-photo.jpg"
-  bio: "My awesome biography constrained to a sentence or two goes here."
+  bio: "程式語言的初心者。前歷史研究生，到處大喊我愛歷史，同時認為寫程式非常有趣，想著人生應該嘗試不同可能。"
   links:
-    - label: "Website"
+    - label: "Medium"
       icon: "fas fa-fw fa-link"
-      url: "https://"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
+      url: "https://medium.com/@moluishere"
+    # - label: "Twitter"
+    #   icon: "fab fa-fw fa-twitter-square"
+    #   url: "https://twitter.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
+      url: "https://github.com/moluishere"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://www.instagram.com/stu50331/"
 
 footer:
   links:
