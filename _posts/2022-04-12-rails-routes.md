@@ -46,11 +46,11 @@ route - 中文翻譯成「路由」，其涵義為路線、路徑。
 
 在 Rails 中路由都在 `routes.rb` 定義。我們可以靠指定的方式建立路由，或是使用「資源路由」（resource routing）一次產生出符合 RESTful 設計風格的路由。
 
-> 關於 RESTful 會在之後的文章介紹。
+\*關於 RESTful 會在之後的文章介紹。
 
 ### 指定路由
 
-- 自行定義路由，指定網址與連線方式，並引導到特定 controller 中的 action。
+在 Rails 中可自行定義路由，指定網址與連線方式，並引導到特定 controller 中的 action。
 
 先來看看下方的範例：
 
