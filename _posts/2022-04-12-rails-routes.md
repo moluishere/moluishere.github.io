@@ -99,7 +99,8 @@ end
 
 ## 資源路由的組合技
 
-有時候我們也會遇到不需要這麼多路由的狀況，同時又有需要自定義的地方。
+有時候我們也會遇到不需要這麼多路由的狀況，同時又有需要自定義的路由。
+
 這個時候我們可以使用 only 指定所需的路由 ，並在範圍裡面進行擴充。
 
 並且有`member`與`collection`兩種方法，主要的差異在於`member`會自帶 id ：
@@ -107,9 +108,8 @@ end
 ```ruby
 Rails.application.routes.draw do
 
-  resources :users do
-
-		member do
+  resources :users, only: [:create] do
+    member do
       #member 的擴充會自帶ID
       get :abc # /users/:id/abc
     end
@@ -118,8 +118,8 @@ Rails.application.routes.draw do
       # collection 的擴充則是直接接在後面
       get :abc # /users/abc
     end
-
   end
+
 end
 ```
 
