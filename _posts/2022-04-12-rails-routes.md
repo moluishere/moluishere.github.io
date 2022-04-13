@@ -77,7 +77,9 @@ end
 Rails 提供了一個符合 RESTful 風格的路由產生器，只要下一條指令就可以產生 8 條路徑與 7 個 action，我們先在 routes.rb 寫下這段指令 ：
 
 ```ruby
-resources :users
+Rails.application.routes.draw do
+  resources :users
+end
 ```
 
 在終端機我們可以使用 `rails routes -c users` 這個指令檢查 users 路由的狀態，產生的內容應該如下：
@@ -94,6 +96,34 @@ resources :users
 |  DELETE   |   /users/:id(.:format)    |   users#destroy   |
 
 資源路由提供了我們一套可以進行基本 CRUD 的路徑與 Controller action，我們就不用自己一個一個去定義。但遇到專案比較大的時候，我們還是得自行定義路由。
+
+## 資源路由的組合技
+
+有時候我們也會遇到不需要這麼多路由的狀況，同時又有需要自定義的地方。
+這個時候我們可以使用 only 指定所需的路由 ，並在範圍裡面進行擴充。
+
+並且有`member`與`collection`兩種方法，主要的差異在於`member`會自帶 id ：
+
+```ruby
+Rails.application.routes.draw do
+
+  resources :users do
+
+		member do
+      #member 的擴充會自帶ID
+      get :abc # /users/:id/abc
+    end
+
+    collection do
+      # collection 的擴充則是直接接在後面
+      get :abc # /users/abc
+    end
+
+  end
+end
+```
+
+如果不需要 id，就可以選擇使用`collection`方法。
 
 ## 為什麼要用路由？
 
