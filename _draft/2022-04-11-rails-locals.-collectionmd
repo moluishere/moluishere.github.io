@@ -51,3 +51,13 @@ MVC - Model、View、Controller，是一種設計架構與開發邏輯。
 
 - [The Model View Controller Pattern – MVC Architecture and Frameworks Explained](https://www.freecodecamp.org/news/the-model-view-controller-pattern-mvc-architecture-and-frameworks-explained/)（Rafael D. Hernandez）
 - [Model、View、Controller 三分天下](https://railsbook.tw/chapters/10-mvc) （高見龍）
+
+照例我們來看看官方手冊是如何介紹的：
+
+>Rails is a web application development framework written in the Ruby programming language. 
+
+手冊在 *What is Rails?* 這個章節告訴我們 Rails 是一個基於 Ruby 寫的的網頁開發框架。
+
+> It is designed to make programming web applications easier by making assumptions about what every developer needs to get started. It allows you to write less code while　accomplishing more than many other languages and frameworks. Experienced Rails developers also report that it makes web application development more fun.
+
+Rails 的設計目標是讓開發者可以更容易地進行網站開發。而且相較於其他程式語言和框架，Rails 可以用更少的程式碼達成更多的功能，同時讓網站開發變得更加有趣。
