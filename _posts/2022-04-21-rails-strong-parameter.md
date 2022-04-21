@@ -51,7 +51,7 @@ class UsersController < ApplicationController
 前面我們說到，如果我們沒有對那包資料做任何清洗，畫面就會出現 `ActiveModel::ForbiddenAttributes`
 的錯誤訊息。這時我們使用可以使用 Rails 提供的方法來設定白名單。
 
-我們通常是使用 requier 與 permit 兩種方法。
+我們通常是使用 require 與 permit 兩種方法。
 
 假設我們傳進來的 params 如下：
 
