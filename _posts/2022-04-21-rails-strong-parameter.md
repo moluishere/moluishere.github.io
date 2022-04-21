@@ -32,23 +32,24 @@ Strong parameter 是 Rails 的一種防護機制，它的目的防止有人透�
 
 > It provides an interface for protecting attributes from end-user assignment. This makes Action Controller parameters forbidden to be used in Active Model **mass assignment** until they have been **explicitly enumerated**.
 
-Rails 提供一個介面 Action Controller 來處理大量賦值（mass assignment），透過白名單來過濾不可賦值的參數，也就是明確指定那些屬性可以賦值。
+Rails 提供一個 interface 在終端使用者的操作下保護屬性，其藉由 Action Controller 來處理大量賦值（mass assignment），透過白名單來過濾不可賦值的參數，也就是明確指定那些屬性可以賦值。
 
 我們可以想像「大量賦值」指的就是「透過表單寫入 params 到資料庫」，這時如果那包 params 沒有做任何資料清洗，在我們存入資料庫時就會報錯：
 
 ```ruby
-class PeopleController < ActionController::Base
+class UsersController < ApplicationController
   # 會拋出 ActiveModel::ForbiddenAttributes 異常。
   # 因為做了大量賦值卻沒有明確的說明允許賦值的參數有哪些。
   def create
-    Person.create(params[:person])
+    @user = User.new(params[:user])
+    @user.save
   end
 ```
 
 ## Strong parameter 使用方法
 
 前面我們說到，如果我們沒有對那包資料做任何清洗，畫面就會出現 `ActiveModel::ForbiddenAttributes`
-的錯誤訊息。這時我們使用可以使 Rails 提供的方法來設定白名單。
+的錯誤訊息。這時我們使用可以使用 Rails 提供的方法來設定白名單。
 
 我們通常是使用 requier 與 permit 兩種方法。
 
@@ -56,20 +57,30 @@ class PeopleController < ActionController::Base
 
 ```ruby
 # 隨表單傳入的資料應該還有從表單生成的 token，此處先不列出。
-person: { name: "Francesco", :age: 25 }
+user: { username: "Francesco", :email: "aa@bb.cc" }
 ```
 
-我們可以透過 require 拿到 :person 這個 key，再透過 permit 允許 :name， :age 包含這兩個 key 本身的 hash 進來：
+我們可以透過 require 拿到 :username 這個 key，再透過 permit 允許 :username， :email 包含這兩個 key 本身的 hash 進來：
 
 ```ruby
  private
     # 使用 private 方法來封裝允許大量賦值的參數
     # 這麼做的好處是這個方法可以在 Controller 重複使用。
-    # 也可以寫成 params.[:person].permit(:name, :age)，但我們通常都使用 require
-    def person_params
-      params.require(:person).permit(:name, :age)
+    # 也可以寫成 params.[:user].permit(:name, :age)，但我們通常都使用 require
+    def claen_params
+      params.require(:user).permit(:name, :age)
     end
 end
+```
+
+此時我們使用清洗過的資料當作參數，就可以順利存入：
+
+```ruby
+class UsersController < ApplicationController
+  def create
+    @user = User.new(claen_params)
+    @user.save
+  end
 ```
 
 參考資料：
