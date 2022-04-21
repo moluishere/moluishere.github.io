@@ -56,9 +56,7 @@ class PeopleController < ActionController::Base
 
 ```ruby
 # 隨表單傳入的資料應該還有從表單生成的 token，此處先不列出。
-
 person: { name: "Francesco", :age: 25 }
-
 ```
 
 我們可以透過 require 拿到 :person 這個 key，再透過 permit 允許 :name， :age 包含這兩個 key 本身的 hash 進來：
@@ -67,19 +65,14 @@ person: { name: "Francesco", :age: 25 }
  private
     # 使用 private 方法來封裝允許大量賦值的參數
     # 這麼做的好處是這個方法可以在 Controller 重複使用。
-
+    # 也可以寫成 params.[:person].permit(:name, :age)，但我們通常都使用 require
     def person_params
       params.require(:person).permit(:name, :age)
     end
-  # 也可以寫成 params.[:person].permit(:name, :age)，但我們通常都使用 require
-
 end
-```
-
 ```
 
 參考資料：
 
 - [Strong Parameters（Rails Guide）](https://edgeapi.rubyonrails.org/classes/ActionController/StrongParameters.html)
 - [[ Rails guide study ] Day03 Strong parameters 介紹(Getting Started with Rails part2)](https://ithelp.ithome.com.tw/articles/10214372)
-```
