@@ -26,15 +26,40 @@ tags:
 
 ## Strong parameter 是什麼？
 
-Strong parameter 是 Rails 的一種防護機制，它的目的防止有人透過竄改表單欄位將不應該出現的資訊傳入資料庫。換句話說，使用者只能使用我們所設計且允許的表單欄位傳送資料，若有人在前端設計其他欄位想要傳送資料時就會被阻擋下來。
+Strong parameter 是 Rails 的一種防護機制，它的目的是防止有人透過竄改表單欄位將不應該出現的資訊傳入資料庫。換句話說，使用者只能使用我們所設計且允許的表單欄位傳送資料，若有人在前端設計、更改欄位想要傳送資料時就會被阻擋下來。
 
 我們來看看官方手冊關於 Strong parameter 的描述：
 
 > It provides an interface for protecting attributes from end-user assignment. This makes Action Controller parameters forbidden to be used in Active Model **mass assignment** until they have been **explicitly enumerated**.
 
-Rails 提供一個 interface 在終端使用者的操作下保護屬性，其藉由 Action Controller 來處理大量賦值（mass assignment），透過白名單來過濾不可賦值的參數，也就是明確指定那些屬性可以賦值。
+Rails 提供一個 interface 在終端使用者的操作下保護屬性（attributes），其藉由 Action Controller 來處理大量賦值（mass assignment），透過白名單來過濾不可賦值的參數，也就是明確指定那些屬性可以賦值。
 
-我們可以想像「大量賦值」指的就是「透過表單寫入 params 到資料庫」，這時如果那包 params 沒有做任何資料清洗，在我們存入資料庫時就會報錯：
+那麼，大量賦值（mass assignment）又是什麼呢？
+
+## 什麼是 mass assignment ?
+
+大量賦值是 Rails 提供的的一個功能，範例如下：
+
+```ruby
+user = User.new
+user.name = "Francesco"
+user.email= "aa@bb.cc"
+user.save
+```
+
+`new` 這個方法接受 hash 做賦值， 因此可以寫成：
+
+```ruby
+# {:name: "Foo", :email : "aa@bb.cc"} 的{}可省略
+User.new( :name: "Foo", :email : "aa@bb.cc" )
+```
+
+這種一次性對實體化出來的物件進行多個 attributes 賦值，就稱為大量賦值。
+最後我們呼叫 `save` 方法，就可以把資料存進資料庫了。
+
+## Form 與 mass assignment
+
+我們可以想像，通常我們設計的表單會有好幾個欄位請使用者 input 進去，在 Rails 中會是一包 params，「大量賦值」後「save」的行為實際上就是「將表單傳入的 params 存到資料庫」，這時如果那包 params 沒有做任何資料清洗，在我們存入資料庫時就會報錯：
 
 ```ruby
 class UsersController < ApplicationController
@@ -49,9 +74,9 @@ class UsersController < ApplicationController
 ## Strong parameter 使用方法
 
 前面我們說到，如果我們沒有對那包資料做任何清洗，畫面就會出現 `ActiveModel::ForbiddenAttributes`
-的錯誤訊息。這時我們使用可以使用 Rails 提供的方法來設定白名單。
+的錯誤訊息。這時我們可以使用 Rails 提供的方法來設定白名單。
 
-我們通常是使用 require 與 permit 兩種方法。
+我們通常是使用 `require` 與 `permit` 兩種方法。
 
 假設我們傳進來的 params 如下：
 
@@ -60,15 +85,15 @@ class UsersController < ApplicationController
 user: { username: "Francesco", :email: "aa@bb.cc" }
 ```
 
-我們可以透過 require 拿到 :username 這個 key，再透過 permit 允許 :username， :email 包含這兩個 key 本身的 hash 進來：
+我們可以透過 `require` 拿到 :username 這個 key，再透過 `permit` 允許 :username， :email 包含這兩個 key 本身的 hash 進來。
+
+通常我們會使用 `private` 方法來封裝允許大量賦值的參數，這麼做的好處是這個方法可以在 Controller 重複使用：
 
 ```ruby
  private
-    # 使用 private 方法來封裝允許大量賦值的參數
-    # 這麼做的好處是這個方法可以在 Controller 重複使用。
-    # 也可以寫成 params.[:user].permit(:name, :age)，但我們通常都使用 require
     def claen_params
       params.require(:user).permit(:name, :age)
+      # 也可以寫成 params.[:user].permit(:name, :age)，但我們通常都使用 require
     end
 end
 ```
@@ -82,6 +107,8 @@ class UsersController < ApplicationController
     @user.save
   end
 ```
+
+在 Rails 中，Strong parameter 的設計，讓我們必須確保資料經過清洗，以保護我們的資料庫。
 
 參考資料：
 
