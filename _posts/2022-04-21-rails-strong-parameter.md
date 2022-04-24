@@ -24,9 +24,17 @@ tags:
 
 > 前提：初學者的學習筆記，僅供參考，敬請指教～
 
+## Rails 當中的 params
+
+Rails 中的 params 是我們從前端表單傳送進來的一大包資料。當我們在表單上點擊提交，會把一個 http request 傳送到後端伺服器，伺服器再根據請求回傳內容至瀏覽器。
+
+在 Rails 這些 http request 會在 Controller 處理，後端會將傳送進來的內容轉變成可取用的變數 params ，例如使用者填寫進表單的內容，以及隨表單傳入 token，這包資料會以 hash 呈現。
+
+而這些從前端傳進來的資料，會先經過 Strong parameter 的檢核才能存進資料庫。
+
 ## Strong parameter 是什麼？
 
-Strong parameter 是 Rails 的一種防護機制，它的目的是防止有人透過竄改表單欄位將不應該出現的資訊傳入資料庫。換句話說，使用者只能使用我們所設計且允許的表單欄位傳送資料，若有人在前端設計、更改欄位想要傳送資料時就會被阻擋下來。
+Strong parameter 是 Rails 的一種防護機制，它的目的是防止有人透過竄改表單欄位，將不應該出現的資訊傳入資料庫。換句話說，使用者只能使用我們所設計且允許的表單欄位傳送資料，若有人在前端設計、更改欄位想要傳送資料時就會被阻擋下來。
 
 我們來看看官方手冊關於 Strong parameter 的描述：
 
@@ -81,7 +89,6 @@ class UsersController < ApplicationController
 假設我們傳進來的 params 如下：
 
 ```ruby
-# 隨表單傳入的資料應該還有從表單生成的 token，此處先不列出。
 user: { username: "Francesco", :email: "aa@bb.cc" }
 ```
 
