@@ -109,7 +109,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create] do
     member do
-      #member 的擴充會自帶ID
+      # member 的擴充會自帶ID
       get :abc # /users/:id/abc
     end
 

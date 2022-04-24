@@ -32,7 +32,7 @@ Rails 中的 params 是我們從前端表單傳送進來的一大包資料。當
 
 在 Rails 中這些 http request 會在 Controller 處理，後端會將傳送進來的內容轉變成可取用的變數 params ，例如使用者填寫進表單的內容，以及隨表單傳入 token，這包資料會以 hash 呈現。
 
-而這些從前端傳進來的資料，會先經過 Strong parameter 的檢核才能存進資料庫。
+而這些從前端傳進來的資料，會先經過 Strong parameter 的檢核，確保資料經過清洗後才能存進資料庫。
 
 ## Strong parameter 是什麼？
 
@@ -117,7 +117,7 @@ class UsersController < ApplicationController
   end
 ```
 
-在 Rails 中，Strong parameter 的設計，讓我們必須確保資料經過清洗，以保護我們的資料庫。
+在 Rails 中，Strong parameter 的設計，是一個內建的防護機制，讓我們必須確保資料經過清洗，以保護我們的資料庫。
 
 參考資料：
 
