@@ -1,6 +1,6 @@
 ---
 title: "【Ruby】每天一點 Rails：find()、find_by()、where() -- day 04"
-date: 2022-04-25
+date: 2022-04-24
 categories:
   - blog
 tags:
