@@ -26,9 +26,11 @@ tags:
 
 ## Rails 當中的 params
 
+在介紹 Strong parameter 之前，先來了解一下 Rails 中的 params 。
+
 Rails 中的 params 是我們從前端表單傳送進來的一大包資料。當我們在表單上點擊提交，會把一個 http request 傳送到後端伺服器，伺服器再根據請求回傳內容至瀏覽器。
 
-在 Rails 這些 http request 會在 Controller 處理，後端會將傳送進來的內容轉變成可取用的變數 params ，例如使用者填寫進表單的內容，以及隨表單傳入 token，這包資料會以 hash 呈現。
+在 Rails 中這些 http request 會在 Controller 處理，後端會將傳送進來的內容轉變成可取用的變數 params ，例如使用者填寫進表單的內容，以及隨表單傳入 token，這包資料會以 hash 呈現。
 
 而這些從前端傳進來的資料，會先經過 Strong parameter 的檢核才能存進資料庫。
 
