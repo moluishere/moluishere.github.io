@@ -193,5 +193,5 @@ RVM 相關指令如下：
 - [Use windows or linux to start work with Ruby On Rails?](https://stackoverflow.com/questions/11648866/use-windows-or-linux-to-start-work-with-ruby-on-rails)
 - [適用於 Linux 的 Windows 子系統常見問題集](https://docs.microsoft.com/zh-tw/windows/wsl/faq)
 - [你認識最適合新手入門 Linux 發行版 Ubuntu 嗎？那你知道 Debian 為何常被一起提起？](https://progressbar.tw/posts/245)
-- [環境設定\_為你自己學 Ruby on Rails（高見龍）](https://railsbook.tw/chapters/02-environment-setup)
-- [Day 02 | 環境安裝 不可少的 RVM（Aimee）](https://ithelp.ithome.com.tw/articles/10216350)
+- [環境設定\_為你自己學 Ruby on Rails（高見龍 ](https://railsbook.tw/chapters/02-environment-setup)
+- [Day 02 | 環境安裝 不可少的 RVM（Aimee ](https://ithelp.ithome.com.tw/articles/10216350)

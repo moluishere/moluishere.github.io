@@ -163,6 +163,6 @@ Model.last # 找出最後一筆資料
 
 參考資料：
 
-- [Active Record 查詢（RaiS Guide）](https://rails.ruby.tw/active_record_querying.html)
+- [Active Record 查詢（Rails Guide）](https://rails.ruby.tw/active_record_querying.html)
 - [Day24: Rails 中的 find? find_by? where?（Louis）](https://ithelp.ithome.com.tw/articles/10225325)
 - [Ruby on rails - find-vs-find-by-vs-where（stack over flow）](https://stackoverflow.com/questions/11161663/find-vs-find-by-vs-where)
