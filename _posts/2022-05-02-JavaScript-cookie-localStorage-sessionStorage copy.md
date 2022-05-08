@@ -1,6 +1,6 @@
 ---
 title: "【JavaScript】Cookie、LocalStorage、SessionStorage"
-date: 2022-05-2
+date: 2022-05-02
 categories:
   - blog
 tags:
