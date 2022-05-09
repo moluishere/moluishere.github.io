@@ -15,12 +15,12 @@ tags:
 <center>
     <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="https://miro.medium.com/max/875/1*pv_Izc6m-aHltyZgLQqptQ.jpeg">
+    src="https://www.drupal.org/files/project-images/Google-API.jpg">
     <br>
     <div style="color:orange;
     display: inline-block;
     color: #999;
-    padding: 2px; font-size:14px">photo by @maxcodes on Unsplash</div>
+    padding: 2px; font-size:14px">photo by drrpal</div>
 </center>
 
 > 前提：初學者的學習筆記，僅供參考，敬請指教～
@@ -78,16 +78,15 @@ config.google.callback_url = "<ngro_uri> oauth/callback?provider=google"
 
 ## 取得 Google API
 1. 前往[Google Cloud Platform (GCP)](https://console.cloud.google.com) 建立專案。
-2. 點選 API和服務 > 憑證 > 建立 OAuth 用戶端 ID。
-需要注意的是 `已授權重新導向URI`，要填入才能在登入後重新導向：
-
+2. 點選 API和服務 > 憑證 > 建立 OAuth 用戶端 ID。需要注意的是 `已授權重新導向URI`，要填入才能在登入後重新導向：
+![](https://miro.medium.com/max/1400/0*leq6N7Maz-u7jFGM.png)
     ```ruby
     # 這組網址是在先前設定的 sorcery.rb 取得
     <ngro_uri> oauth/callback?provider=google
     ```
 3. 得到用戶端編號(Client ID)、用戶端密碼(Secret)。
 
-![](https://miro.medium.com/max/1400/0*leq6N7Maz-u7jFGM.png)
+
 > 得到這兩組 API 後 ，我們還需要將其設定成環境變數。
 
 ### 第三方登入與環境變數設置
@@ -125,11 +124,20 @@ config.google.callback_url =  "https://#{ENV['host_name']}/oauth/callback?provid
 config.google.user_info_mapping = {:email => "email"} 
 ```
 
+最後到 `development.rb` 設定`config.hosts`：
+```ruby
+# config/environment/development.rb
+Rails.application.configure do
+  config.hosts << ENV['host_name']
+end
+```
+
 ## Sorecery 檔案設定
 `user.rb`，找到 `authenticates_with_sorcery!` 並增加以下內容：
 ```ruby
 # app/models/user.rb
-authenticates_with_sorcery! do |config|
+class User < ApplicationRecord
+  authenticates_with_sorcery! do |config|
     config.authentications_class = Authentication
   end
 
@@ -139,7 +147,7 @@ end
 ```
 在登入頁面的 `erb檔` 加上連結：
 ```html
-<%= link_to “Login with Google”, auth_at_provider_path(provider: :google) %>
+<%= link_to 'Login with Google', auth_at_provider_path(provider: :google) %>
 ```
 接著建立一個身份驗證的`Model`：
 ```
