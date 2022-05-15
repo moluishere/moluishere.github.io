@@ -1,5 +1,5 @@
 ---
-title: "【Ruby】每天一點 Rails：route 建置 -- day 02 "
+title: "【Ruby】每天一點 Rails：route 建置"
 date: 2022-04-12
 categories:
   - blog

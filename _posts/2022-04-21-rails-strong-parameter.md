@@ -1,5 +1,5 @@
 ---
-title: "【Ruby】每天一點 Rails：Strong parameter -- day 03"
+title: "【Ruby】每天一點 Rails：Strong parameter"
 date: 2022-04-21
 categories:
   - blog
