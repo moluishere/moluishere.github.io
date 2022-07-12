@@ -100,7 +100,7 @@ localStorage.getItem(key);
 localStorage.removeItem(key, value);
 ```
 
-實務上更常使用 Local Storage，它適合拿來儲存不需要與 Server 溝通、較複雜且不敏感的資料，例如喜好設定、顏色樣式等等。
+實務上更常使用 Local Storage，它適合拿來儲存「不需要與 Server 溝通、較複雜且不敏感的資料」，例如喜好設定、顏色樣式等等。
 
 ### Session Storage
 
