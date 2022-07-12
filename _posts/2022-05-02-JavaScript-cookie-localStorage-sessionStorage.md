@@ -112,7 +112,7 @@ Session Storage 的操作和 Local Storage 幾乎相同，只是由於生命週�
 
 - Cookie：容量小、可設定時效、會隨 HTTP 打到後端，適合拿來進行身份驗證（儲存 ID）。
 - LocalStorage：容量較大、永久性的儲存空間，適合拿來儲存不需要與 Server 溝通、較複雜且不敏感的資料，例如喜好設定、顏色樣式。
-- LocalStorage：容量較大、暫存性的儲存空間，適合拿來儲存短期的資訊。
+- SessionStorage：容量較大、暫存性的儲存空間，適合拿來儲存短期的資訊。
 
 參考資料：
 
