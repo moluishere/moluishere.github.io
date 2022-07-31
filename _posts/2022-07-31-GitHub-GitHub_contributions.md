@@ -28,9 +28,7 @@ tags:
 
 這個綠色格子分佈不合理！
 
-```
-這些綠色的格子，是我們每次給 GitHub 提交程式碼可以獲得的貢獻紀錄，游標移到格子上面，顯示的是當日有幾次提交的 commit。顏色深淺度是按照 commit 數的比例分配，顏色越深代表越多 commit 。
-```
+> 這些綠色的格子，是我們每次給 GitHub 提交程式碼可以獲得的貢獻紀錄，游標移到格子上面，顯示的是當日有幾次提交的 commit。顏色深淺度是按照 commit 數的比例分配，顏色越深代表越多 commit 。
 
 專案開始時大約是四月底，五、六月時每天都在寫 code，而且都有 push 到 GitHub 上。但綠色格子的的 commit 數不僅很低，而且有些天還是空白的，跟實際狀況差滿多的。於是我決定要搶救我的綠色格子！
 
@@ -156,10 +154,7 @@ git filter-branch --env-filter '
 
 參考文章：
 
-參考文章：
-
 - [How do I change the author and committer name/email for multiple commits?
-  ](https://stackoverflow.com/questions/750172/how-do-i-change-the-author-and-committer-name-email-for-multiple-commits)(stackoverflow)
-
+  ](https://stackoverflow.com/questions/750172/how-do-i-change-the-author-and-committer-name-email-for-multiple-commits)
 - [2.3 Git 基礎 - 檢視提交的歷史記錄](https://git-scm.com/book/zh-tw/v2/Git-%E5%9F%BA%E7%A4%8E-%E6%AA%A2%E8%A6%96%E6%8F%90%E4%BA%A4%E7%9A%84%E6%AD%B7%E5%8F%B2%E8%A8%98%E9%8C%84#rlog_options)（Git）
 - [修复 git 提交不显示 commit 贡献小绿点【git bash】](https://codeantenna.com/a/ak27IiJb0s)(CodeAntenna)
