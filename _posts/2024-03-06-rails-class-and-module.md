@@ -1,5 +1,5 @@
 ---
-title: "【Ruby】來點 Rails 吧 - class vs module"
+title: "【Ruby】來點 Rails 吧 - Class and Module"
 date: 2024-03-04
 categories:
   - blog
