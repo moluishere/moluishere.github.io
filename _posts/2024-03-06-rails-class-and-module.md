@@ -22,7 +22,7 @@ tags:
 
 先來假設一個情境，我們在一個專案中要擴充功能，這個功能很簡單，我想要丟進一個數字，並且讓這個數字加一，這個功能可以寫成一個簡單的方法：
 
-```ruby=
+```ruby
 def add_one(number)
   number + 1
 end
@@ -31,7 +31,7 @@ end
 現在我有了 `add_one` 這個方法，那我要如何在專案中的任何地方都可以使用這個方法呢？
 
 1. 寫一個 class，任何地方都可以呼叫：
- ```ruby=
+ ```ruby
  class Add
   class << self
     def add_one(number)
@@ -42,7 +42,7 @@ end
 # Add.add_one(unmber) 呼叫
  ```
 2. 寫一個 module，在要呼叫的地方 include/extend 這個 module：
- ```ruby=
+ ```ruby
  module Add
   def add_one(number)
     number + 1
