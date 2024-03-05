@@ -9,6 +9,8 @@ tags:
   - Module
 ---
 
+關於 Rails 中的 Class & Module
+
 ## 前言
 
 在 Ruby on Rails 中，Class 和 Module 在實作上寫起來很相似。
@@ -28,7 +30,7 @@ def add_one(number)
 end
 ```
 
-現在我有了 `add_one` 這個方法，那我要如何在專案中的任何地方都可以使用這個方法呢？
+現在我有了 `add_one` 這個方法，那我們要如何在專案中的任何地方，都可以使用它呢？
 
 1. 寫一個 class，任何地方都可以呼叫：
  ```ruby
@@ -52,7 +54,9 @@ end
  # Add.add_one(number) / self.add_one(number) 呼叫
  ```
 
-我們可以看到，在實作上寫 Class 或是 Module 都可以達到想要的效果，只是呼叫的方式不同。那我們在實作時，該如何選擇是要使用 Class 或是 Codule 呢？
+我們可以看到，在實作上寫 Class 或是 Module 都可以達到想要的效果，只是呼叫的方式不同。
+
+那我們在實作時，該如何選擇是要使用 Class 或是 Module 呢？
 
 
 ## 定義 - Class vs Module
@@ -80,11 +84,11 @@ end
 
 Class 和 Module 都讓我們能夠擴充功能，關於到底要使用 Class 還是 Module ，我們可以思考以下幾點：我們是否需要建立實體（instance）、擴充的功能跟現有的類別是否具有階層關係，以及擴充的功能跟現有的程式碼如何互動。
 
-如果現在是在一個定義好的相關的 Class 裡，需要一個共用的方法，我們可以可以選擇使用 Class，將方法寫在父層，讓這個 Class 下面的實體都可以使用這個方法。
+如果現在是在一個定義好的相關的 Class 裡，需要一個共用的方法，我們可以選擇使用 Class，將方法寫在父層，讓這個 Class 下面的實體都可以使用這個方法。
 
 如果我們現在擴充的功能，是想要在整個程式碼的許多不相關的 Class 裡共用，我們就可以使用 Module，當我們需要時在 include/extend 即可。
 
 參考文章：
 + [Difference between a class and a module](https://stackoverflow.com/questions/151505/difference-between-a-class-and-a-module/9778021#9778021)
 + [ Class Inheritance VS Modules in Ruby
-](https://dev.to/abbiecoghlan/class-inheritance-vs-modules-in-ruby-1fha)---
+](https://dev.to/abbiecoghlan/class-inheritance-vs-modules-in-ruby-1fha)
