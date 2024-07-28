@@ -9,7 +9,7 @@ tags:
   - scope method
 ---
 
-在 ruby on rails 中，當我們進入一個 model class，我們可以看到以下 3 種方法，：
+在 ruby on rails 中，當我們進入一個 model class，我們可以看到以下 3 種方法：
 
 1. class method
 2. instance method
@@ -29,7 +29,7 @@ tags:
 >+ User 身上有個欄位 `active`，`type` 為 `boolean`，代表這個 user 是否啟用。
 >+ 我現在想要找到所有啟用的 user，條件為  `active` 為 `true`。
 
-```ruby=
+```ruby
 # 定義一個 class mehotd 來找到所有啟用的使用者
 class User < ApplicationRecord
   def self.active_users
@@ -40,7 +40,7 @@ end
 
 **call**：
 
-```ruby=
+```ruby
 # 透過呼叫 actice_users 來獲得所有啟用的使用者
 User.active_users
 ```
@@ -54,7 +54,7 @@ User.active_users
 **ex**：
 > + 定義一個 instance method 來返回 user 的全名，使用 user 身上的 `first_name` & `last_name` 欄位組成。
 
-```ruby=
+```ruby
 class User < ApplicationRecord
 
   def full_name
@@ -65,7 +65,7 @@ end
 
 **call**：
 
-```ruby=
+```ruby
 # 假設有一個 user instance
 user = User.find(1)
 # 呼叫 instance mthod 來得到該 user 的全名
@@ -80,7 +80,7 @@ user.full_name
 
 **ex**：
 
-```ruby=
+```ruby
 class User < ApplicationRecord
   # 定義一個 scope mehotd 來找到所有啟用的使用者
   scope :active, -> { where(active: true) }
@@ -89,7 +89,7 @@ end
 
 **使用方式**：
 
-```ruby=
+```ruby
 # 透過呼叫 active 來獲得所有啟用的使用者
 User.active
 ```
@@ -110,7 +110,7 @@ User.active
 
 **ex：**
 
-```ruby=
+```ruby
 class User < ApplicationRecord
   # 定義一個 scope mehotd 來找到所有啟用的使用者
   # 目前所有 user 都還未啟用，active 欄位都是 false
